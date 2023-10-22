@@ -1,3 +1,5 @@
 # Dockerfile
-FROM busybox
-CMD echo "Hello world! This is my first Docker image."
+FROM tomcat:9
+ADD my-app-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps
+CMD ["catalina.sh", "run"]
+EXPOSE 8080
