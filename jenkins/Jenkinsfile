@@ -18,8 +18,15 @@ pipeline{
         stage('build image'){
             steps{
                 sh 'cp /var/lib/jenkins/workspace/CICDPipeline/target/my-app-1.0-SNAPSHOT.jar .'
-                sh 'docker build -t imagemyapp .'
+                sh 'docker build -t imageproj .'
                 
+            }
+        }
+
+	stage('deplaoy application'){
+            steps{
+                sh 'docker run -d -P imageproj'
+                               
             }
         }
         
